@@ -24,6 +24,9 @@ const write = async (path, data) => {
         });
     })
 }
+const appendToDoc = (query, value, initialValue) => {
+    return (initialValue ? initialValue + ' ; ' : ' ') + 'document.querySelector("' + query + '").value="' + value + '"'
+}
 const start = async () => {
     const data = await read('names.txt');
     let count = await read('counter.txt');
@@ -36,7 +39,6 @@ const start = async () => {
     fName = NameArray[0];
     lName = NameArray[1];
     email = email.replace('-num-', count)
-    console.log(fName, lName, email)
     let log = '';
     try {
         log = await read('log.txt')
@@ -44,8 +46,16 @@ const start = async () => {
         log = 'fl';
     }
     write('log.txt', log + '\n######\n' + name + '\n' + email + '\n @ ' + new Date());
+    let appended = '';
+    appended = appendToDoc('#inpSignupFname', fName, appended)
+    appended = appendToDoc('#inpSignupLname', lName, appended)
+    appended = appendToDoc('#inpSignupEmail', email, appended)
+    appended = appendToDoc('#inpSignupPas', pwd, appended)
+    appended = appendToDoc('#inpSignupRepPas', pwd, appended)
+    console.log(appended)
 
 }
+
 start();
 // const randomNames = ''
 // const fName ='';
