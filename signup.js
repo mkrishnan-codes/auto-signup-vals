@@ -27,6 +27,7 @@ const write = async (path, data) => {
 const appendToDoc = (query, value, initialValue) => {
     return (initialValue ? initialValue + ' ; ' : ' ') + 'document.querySelector("' + query + '").value="' + value + '"'
 }
+
 const start = async () => {
     const data = await read('names.txt');
     let count = await read('counter.txt');
@@ -46,13 +47,18 @@ const start = async () => {
         log = 'fl';
     }
     write('log.txt', log + '\n######\n' + name + '\n' + email + '\n @ ' + new Date());
-    let appended = '';
-    appended = appendToDoc('#inpSignupFname', fName, appended)
-    appended = appendToDoc('#inpSignupLname', lName, appended)
-    appended = appendToDoc('#inpSignupEmail', email, appended)
-    appended = appendToDoc('#inpSignupPas', pwd, appended)
-    appended = appendToDoc('#inpSignupRepPas', pwd, appended)
-    console.log(appended)
+    // let appended = '';
+    // appended = appendToDoc('#inpSignupFname', fName, appended)
+    // appended = appendToDoc('#inpSignupLname', lName, appended)
+    // appended = appendToDoc('#inpSignupEmail', email, appended)
+    // appended = appendToDoc('#inpSignupPas', pwd, appended)
+    // appended = appendToDoc('#inpSignupRepPas', pwd, appended)
+    // console.log(appended)
+    console.log(fName)
+    console.log(lName)
+    console.log(email)
+    console.log(pwd)
+
 
 }
 
