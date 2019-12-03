@@ -1,0 +1,8 @@
+{
+  "name": "signup-gen",
+  "version": "1.0.0",
+  "main": "signup.js",
+  "repository": "https://github.com/mkrishnan-codes/auto-signup-vals.git",
+  "author": "mkrishnan-codes <manu.krishnan@tarams.com>",
+  "license": "MIT"
+}
